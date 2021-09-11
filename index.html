@@ -1,20 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title>Imena beba | Novi Sad</title>
+<meta charset="UTF-8">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+body{
+    background-color: rgb(193, 245, 193);
+}
+#imena {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin: auto;
+}
+
+#imena td, #imena th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#imena tr:nth-child(even){background-color: #f2f2f2;}
+#imena tr:nth-child(odd){background-color: white;}
+#imena tr:hover {background-color: #ddd;}
+
+#imena th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #04AA6D;
+  color: white;
+}
+@media only screen and (max-width: 800px) {
+  #imena {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #imena {
+    width: 100%;
+  }
+}
+</style>
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<table id="imena">
+  <tr>
+    <th>Rbr</th>
+    <th id="promeni">Ime</th>
+    <th>Ukupno (14125)</th>
+  </tr>
+</table>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="jquery.csv.min.js"></script>
+<script src="imena.js"></script>
 <script>
-    $.get( "imena.csv", function( CSVdata) {
-      data = $.csv.toArray(CSVdata);
-      console.log(data)
-  });
+    $(document).ready(function(){
+        let brojac = 1;
+        for (let ime in imena) {
+            //console.log(ime, imena[ime]);
+            $("#imena").append("<tr><td>"+ brojac +".</td><td>"+ ime +"</td><td>"+ imena[ime] +"</td></tr>");
+            brojac++;
+        }
+
+        $("#promeni").click(function(){
+            
+        });
+    });     
 </script>
 </body>
 </html>
