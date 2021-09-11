@@ -1,1 +1,20 @@
-<h1>Naslov</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery.csv.min.js"></script>
+<script>
+    $.get( "imena.csv", function( CSVdata) {
+      data = $.csv.toArray(CSVdata);
+      console.log(data)
+  });
+</script>
+</body>
+</html>
